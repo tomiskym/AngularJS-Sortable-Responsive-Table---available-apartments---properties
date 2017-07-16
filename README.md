@@ -1,6 +1,9 @@
 # AngularJS Sortable Responsive Table - available apartments / properties
 
- ###Using:
+
+### Demo:
+Demo [here](http://serwer1449491.home.pl/ftp_nasz/tomek/tabela-mieszkan-angular/#)
+ ### Using:
  * Bootstrap 3.3.7,
  * Font Awesome 4.7,
  * Jquery 3.2.1,
