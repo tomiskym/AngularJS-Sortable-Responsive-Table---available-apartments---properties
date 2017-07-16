@@ -9,3 +9,7 @@
  * HTML5 Shiv 3.7.3,
  * Respond 1.4.2,
  * and TableResponsive.js
+
+ ### Instalation
+
+ Created on WAMPServer, ready to copy.
