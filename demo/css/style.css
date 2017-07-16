@@ -9,6 +9,8 @@ td{padding: 5px;}
     -moz-transform: scale(1.6);
     -o-transform: scale(1.6);
     transform: scale(1.6);
+}
+img{
     -webkit-transition: all .4s ease-in-out;
   	-moz-transition: all .4s ease-in-out;
   	-o-transition: all .4s ease-in-out;
