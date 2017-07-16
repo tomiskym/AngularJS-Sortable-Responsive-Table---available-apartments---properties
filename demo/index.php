@@ -6,8 +6,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script src="table.js"></script>
 <link rel="stylesheet" href="css/font-awesome.min.css">
-
-
 <!-- Bootstrap -->
    <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -22,8 +20,6 @@
    <!-- Include all compiled plugins (below), or include individual files as needed -->
    <script src="js/bootstrap.min.js"></script>
    <link rel="stylesheet" href="css/style.css">
-
-
     <link type="text/css" rel="stylesheet" href="css/lightGallery.css" />
     <script src="js/lightgallery.min.js"></script>
    <!-- lightgallery plugins -->
@@ -113,8 +109,9 @@
         <td>{{residence.price }} zł</td>
         <td>Images:
           <div id="lightgallery">
-             <a href="{{residence.images[0]}}"><img ng-src="{{residence.images[0]}}"></a>
-             <a href="{{residence.images[1]}}"><img ng-src="{{residence.images[1]}}"></a>
+              <span ng-repeat="image in residence.images">
+                <a href="{{image}}"><img ng-src="{{image}}" img-hover/></a>
+              </span>
           </div>
         </td>
       </tr>
@@ -130,14 +127,7 @@
         $("#lightgallery").lightGallery();
     });
 */
-    $(document).ready(function(){
-      $('img').hover(function() {
-          $(this).addClass('transition');
 
-      }, function() {
-          $(this).removeClass('transition');
-      });
-    });
 </script>
 </body>
 </html>

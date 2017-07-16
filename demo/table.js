@@ -9,10 +9,23 @@
     $http.get('residences.json')
       .then(function mySuccess(response) {
         $scope.residences = response.data;
-
         console.log(response, 'yee data.');
       }, function myError(response) {
           $scope.residence = response.statusText;
-          console.log(response, 'can not get data.');
+          console.log('can not get data.');
       });
+
   }]);
+
+  app.directive('imgHover', function (){
+      return {
+          link: function (scope, element, attr) {
+              element.bind('mouseover', function(e){
+                  element.addClass('transition');
+              });
+              element.bind('mouseleave', function(e){
+                  element.removeClass('transition');
+              });
+          }
+      }
+    });
