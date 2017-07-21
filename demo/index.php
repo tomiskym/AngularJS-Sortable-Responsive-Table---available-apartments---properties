@@ -22,7 +22,7 @@
    <link rel="stylesheet" href="css/style.css">
     <link type="text/css" rel="stylesheet" href="css/lightGallery.css" />
     <script src="js/lightgallery.min.js"></script>
-   <!-- lightgallery plugins -->
+   <!-- lightgallery plugins (optional)-->
    <script src="js/lg-thumbnail.min.js"></script>
    <script src="js/lg-fullscreen.min.js"></script>
    <script src="js/tableresponsive.js"></script>
@@ -37,7 +37,20 @@
 </header>
 
 <div ng-app="table" ng-controller="tableCtrl" >
-  <table >
+
+<!--Filters -->
+
+
+  <input id="checkbox-1" class="checkbox-custom" data-ng-model='filters.available' name="checkbox-1" type="checkbox" >
+            <label for="checkbox-1" class="checkbox-custom-label"> Available Only</label>
+  <input id="checkbox-2" class="checkbox-custom" data-ng-model='filters.terrace' name="checkbox-2" type="checkbox" >
+            <label for="checkbox-2" class="checkbox-custom-label"> With Terrace</label>
+  <input id="checkbox-3" class="checkbox-custom" data-ng-model='filters.balcony' name="checkbox-3" type="checkbox">
+            <label for="checkbox-3" class="checkbox-custom-label"> With Balcony</label>
+
+
+
+  <table class="animate-appear">
     <thead>
       <tr >
         <td>
@@ -98,13 +111,15 @@
         </td>
       </tr>
     </thead>
-      <tr ng-repeat="residence in residences | orderBy:sortType:sortReverse" ng-class="{'green': residence.status =='Available', 'red': residence.status == 'Sold','grey': residence.status =='Reservation'}">
+
+      <tr class="animated" ng-repeat="residence in residences | orderBy:sortType:sortReverse | customFilter:filters as filteredResidences" ng-class="{'green': residence.status =='Available', 'red': residence.status == 'Sold','grey': residence.status =='Reservation'}">
+
         <td>{{residence.status}}</td>
         <td>{{residence.number}}</td>
         <td>{{residence.metres}} m<sup>2</sup></td>
         <td>{{residence.rooms}} Rooms</td>
         <td>{{residence.floor}} Floor</td>
-        <td>Terrace<i class="fa fa-times" ng-show="{{residence.terrace}}"></i></td>
+        <td>Terrace<i class="fa fa-check" ng-show="{{residence.terrace}}"></i></td>
         <td>Balcony<i class="fa fa-check" ng-show="{{residence.balcony}}"></i></td>
         <td>{{residence.price }} zł</td>
         <td>Images:
@@ -115,12 +130,13 @@
           </div>
         </td>
       </tr>
+      <tr ng-show="filteredResidences.length === 0"><td>No available residences</td></tr>
   </table>
 
 </div>
 
 <footer>
-  &copy;
+  &copy; 2017 linkedin.com/in/tomasz-malecki
 </footer>
 <script type="text/javascript">
     /*$(document).ready(function() {
