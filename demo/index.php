@@ -57,9 +57,6 @@
     <rzslider rz-slider-model="slider.minValue"
             rz-slider-high="slider.maxValue"
             rz-slider-options="slider.options" class="filter-price"></rzslider>
-
-              Min Price: {{slider.minValue}}
-              Max Price: {{slider.maxValue}}
   </div>
 
 
@@ -125,7 +122,7 @@
       </tr>
     </thead>
 
-      <tr class="animated" ng-repeat="residence in residences | orderBy:sortType:sortReverse | customFilter:filters as filteredResidences" ng-class="{'green': residence.status =='Available', 'red': residence.status == 'Sold','grey': residence.status =='Reservation'}">
+      <tr class="animated" ng-repeat="residence in residences | orderBy:sortType:sortReverse | filter: maxFilter | filter: minFilter | customFilter:filters as filteredResidences" ng-class="{'green': residence.status =='Available', 'red': residence.status == 'Sold','grey': residence.status =='Reservation'}">
 
         <td>{{residence.status}}</td>
         <td>{{residence.number}}</td>

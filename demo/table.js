@@ -19,6 +19,13 @@ app.controller('tableCtrl', ['$scope', '$http',function($scope,$http) {
   $scope.filters = {available: false, terrace: false, balcony: false};
   $scope.residences = [ ];
 
+  $scope.maxFilter = function (item) {
+      return item.price <= $scope.slider.maxValue;
+  };
+  $scope.minFilter = function (item) {
+      return item.price >= $scope.slider.minValue;
+  };
+
   $http.get('residences.json')
     .then(function mySuccess(response) {
       $scope.residences = response.data;
@@ -27,21 +34,22 @@ app.controller('tableCtrl', ['$scope', '$http',function($scope,$http) {
         $scope.residence = response.statusText;
         console.log('can not get data.');
     });
+
+
 }]);
 
-//Filter for checkboxes
+//Filter for checkboxes and slider
 app.filter('customFilter', function() {
 
   return function( items, filters) {
+    //FilteredResidencies in html
     var filtered = [];
-
- //
 
     angular.forEach(items, function(item) {
       if(filters.available == false && filters.terrace == false && filters.balcony == false) {
         filtered.push(item);
       }
-      //When Filter Available is on
+      //When Filter is on
       else if(filters.available == true && item.status == "Available" && filters.terrace == false && filters.balcony == false){
         filtered.push(item);
       }
@@ -51,7 +59,7 @@ app.filter('customFilter', function() {
       else if(filters.balcony == true && item.balcony == true  && filters.available == false && filters.terrace == false){
         filtered.push(item);
       }
-      //To-Do what if will be a lot of filters??
+      //To-Do: what if will be a lot of filters??
       else if(filters.terrace == true && item.terrace == true
       && filters.balcony == true && item.balcony == true && filters.available == false){
         filtered.push(item);
@@ -65,7 +73,6 @@ app.filter('customFilter', function() {
         filtered.push(item);
       }
     });
-
     return filtered;
   };
 });
