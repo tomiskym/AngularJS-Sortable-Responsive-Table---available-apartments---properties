@@ -19,13 +19,19 @@
    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
    <!-- Include all compiled plugins (below), or include individual files as needed -->
    <script src="js/bootstrap.min.js"></script>
-   <link rel="stylesheet" href="css/style.css">
-    <link type="text/css" rel="stylesheet" href="css/lightGallery.css" />
-    <script src="js/lightgallery.min.js"></script>
-   <!-- lightgallery plugins (optional)-->
-   <script src="js/lg-thumbnail.min.js"></script>
-   <script src="js/lg-fullscreen.min.js"></script>
-   <script src="js/tableresponsive.js"></script>
+   <link type="text/css" rel="stylesheet" href="css/lightGallery.css" />
+   <script src="js/lightgallery.min.js"></script>
+  <!-- lightgallery plugins (optional)-->
+  <script src="js/lg-thumbnail.min.js"></script>
+  <script src="js/lg-fullscreen.min.js"></script>
+  <script src="js/tableresponsive.js"></script>
+
+  <!-- rzslider -->
+  <link rel="stylesheet" type="text/css" href="css/rzslider.min.css"/>
+  <script src="js/rzslider.min.js"></script>
+  <!-- stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
 
@@ -40,14 +46,21 @@
 
 <!--Filters -->
 
+  <div>
+    <input id="checkbox-1" class="checkbox-custom" data-ng-model='filters.available' name="checkbox-1" type="checkbox" >
+    <label for="checkbox-1" class="checkbox-custom-label"> Available Only</label>
+    <input id="checkbox-2" class="checkbox-custom" data-ng-model='filters.terrace' name="checkbox-2" type="checkbox" >
+    <label for="checkbox-2" class="checkbox-custom-label"> With Terrace</label>
+    <input id="checkbox-3" class="checkbox-custom" data-ng-model='filters.balcony' name="checkbox-3" type="checkbox">
+    <label for="checkbox-3" class="checkbox-custom-label"> With Balcony</label>
 
-  <input id="checkbox-1" class="checkbox-custom" data-ng-model='filters.available' name="checkbox-1" type="checkbox" >
-            <label for="checkbox-1" class="checkbox-custom-label"> Available Only</label>
-  <input id="checkbox-2" class="checkbox-custom" data-ng-model='filters.terrace' name="checkbox-2" type="checkbox" >
-            <label for="checkbox-2" class="checkbox-custom-label"> With Terrace</label>
-  <input id="checkbox-3" class="checkbox-custom" data-ng-model='filters.balcony' name="checkbox-3" type="checkbox">
-            <label for="checkbox-3" class="checkbox-custom-label"> With Balcony</label>
+    <rzslider rz-slider-model="slider.minValue"
+            rz-slider-high="slider.maxValue"
+            rz-slider-options="slider.options" class="filter-price"></rzslider>
 
+              Min Price: {{slider.minValue}}
+              Max Price: {{slider.maxValue}}
+  </div>
 
 
   <table class="animate-appear">

@@ -1,6 +1,18 @@
-var app = angular.module('table', []);
+var app = angular.module('table', ['rzModule']);
 
 app.controller('tableCtrl', ['$scope', '$http',function($scope,$http) {
+  $scope.slider = {
+      minValue: 200000,
+      maxValue: 350000,
+      options: {
+          floor: 200000,
+          ceil: 350000,
+          step: 1000,
+          translate: function(value) {
+            return value + ' $';
+          }
+      }
+  };
   $scope.sortType     = 'number'; // set the default sort type
   $scope.sortReverse  = false;  // set the default sort order
   //All filters not used by default

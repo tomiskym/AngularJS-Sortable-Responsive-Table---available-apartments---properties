@@ -7,11 +7,11 @@
         "https://i0.wp.com/www.wrzosoweogrody.pl/beta/wp-content/uploads/2017/07/big_widok_blok2.jpg?resize=150%2C150",
         "https://i1.wp.com/www.wrzosoweogrody.pl/beta/wp-content/uploads/2017/07/big_widok_blok1.jpg?resize=150%2C150"
       ]},
-  {"number":3, "status": "Available",  "metres": "50.2", "rooms": 1, "floor": 2, "terrace": true, "balcony": false, "price": 25000, "images": [
+  {"number":3, "status": "Available",  "metres": "50.2", "rooms": 1, "floor": 2, "terrace": true, "balcony": false, "price": 225000, "images": [
         "https://i0.wp.com/www.wrzosoweogrody.pl/beta/wp-content/uploads/2017/07/big_widok_blok2.jpg?resize=150%2C150",
         "https://i1.wp.com/www.wrzosoweogrody.pl/beta/wp-content/uploads/2017/07/big_widok_blok1.jpg?resize=150%2C150"
   ]},
-  {"number":4, "status": "Sold",  "metres": "55.2", "rooms": 2, "floor": 1, "terrace": true, "balcony": true, "price": 3005000, "images": [
+  {"number":4, "status": "Sold",  "metres": "55.2", "rooms": 2, "floor": 1, "terrace": true, "balcony": true, "price": 305000, "images": [
         "https://i0.wp.com/www.wrzosoweogrody.pl/beta/wp-content/uploads/2017/07/big_widok_blok2.jpg?resize=150%2C150",
         "https://i1.wp.com/www.wrzosoweogrody.pl/beta/wp-content/uploads/2017/07/big_widok_blok1.jpg?resize=150%2C150"
   ]}
